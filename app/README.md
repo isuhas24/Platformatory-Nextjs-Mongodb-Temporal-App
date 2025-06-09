@@ -1,5 +1,6 @@
 How to run the application 
 
+=> overview
 This app allows users to sign in with Google using Firebase Auth. On first login, the user is inserted into MongoDB. The dashboard displays that user’s info (editable), and updates are propagated to three databases (userDB1, userDB2, userDB3). Updates are also orchestrated through a Temporal workflow.
 
 => Prerequisites

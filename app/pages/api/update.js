@@ -29,7 +29,9 @@ export default async function handler(req, res) {
     );
 
     // Connecting to Temporal server and create client
-    const connection = await Connection.connect();
+    const connection = await Connection.connect({
+      address: 'host.docker.internal:7233'
+    });
     const client = new WorkflowClient({ connection });
 
     // Starting workflow to orchestrate/update user
@@ -45,3 +47,4 @@ export default async function handler(req, res) {
     res.status(500).json({ error: 'Update or workflow failed' });
   }
 }
+

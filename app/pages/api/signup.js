@@ -7,6 +7,7 @@ export default async function handler(req, res) {
   const { uid, name, email, phone } = req.body;
   const dbs = ["userDB1", "userDB2", "userDB3"];
 
+
   try {
     const client = await clientPromise;
 

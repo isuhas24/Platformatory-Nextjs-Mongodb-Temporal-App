@@ -19,7 +19,7 @@ export default function Home() {
         uid: user.uid,
         name: user.displayName,
         email: user.email,
-        phone: "", // default empty
+        phone: "",
       };
 
       localStorage.setItem("user", JSON.stringify(newUser));

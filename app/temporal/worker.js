@@ -8,7 +8,7 @@ async function run() {
     taskQueue: 'user-updates',
   });
 
-  console.log('👷 Temporal Worker started...');
+  console.log('Temporal Worker started');
   await worker.run();
 }
 

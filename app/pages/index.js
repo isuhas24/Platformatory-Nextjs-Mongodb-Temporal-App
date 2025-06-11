@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import { app } from "../lib/firebase";
+import { auth, provider } from "../lib/firebase";
 import axios from "axios";
 import styles from "../styles/Signup.module.css";
 import { FaGoogle } from "react-icons/fa";
@@ -10,10 +10,9 @@ export default function Home() {
 
   const handleSignup = async () => {
     try {
-      const auth = getAuth(app);
-      const provider = new GoogleAuthProvider();
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
+      console.log(user);
 
       const newUser = {
         uid: user.uid,

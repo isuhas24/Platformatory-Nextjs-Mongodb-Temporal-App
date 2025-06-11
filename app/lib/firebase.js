@@ -10,8 +10,11 @@ const firebaseConfig = {
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
+//create an app
 const app = initializeApp(firebaseConfig);
+//initialize app with authentication
 const auth = getAuth(app);
+//setup google auth provider 
 const provider = new GoogleAuthProvider();
 
 export { auth, provider, app };

@@ -5,6 +5,7 @@ const client = new MongoClient(process.env.MONGODB_URI);
 let clientPromise;
 
 if (!global._mongoClientPromise) {
+  //store the connection info in the global object 
   global._mongoClientPromise = client.connect()
     .then((client) => {
       console.log("MongoDB connected successfully");

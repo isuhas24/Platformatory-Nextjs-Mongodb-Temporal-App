@@ -1,10 +1,9 @@
-import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { app } from "../lib/firebase";
-// import axios from "../lib/axios";
 import axios from "axios";
-import styles from "../styles/Home.module.css";
+import styles from "../styles/Signup.module.css";
+import { FaGoogle } from "react-icons/fa";
 
 export default function Home() {
   const router = useRouter();
@@ -24,10 +23,7 @@ export default function Home() {
       };
 
       localStorage.setItem("user", JSON.stringify(newUser));
-
-      // insert into DB
       await axios.post("/api/signup", newUser);
-
       router.push("/dashboard");
     } catch (error) {
       console.error("Signup error:", error);
@@ -36,10 +32,16 @@ export default function Home() {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>Sign Up With Google</h1>
-      <button className={styles.button} onClick={handleSignup}>
-        Sign Up
-      </button>
+      <div className={styles.card}>
+        <h1 className={styles.title}>Welcome</h1>
+        <p className={styles.description}>
+          Sign up instantly and securely using your Google account.
+        </p>
+        <button className={styles.button} onClick={handleSignup}>
+          <FaGoogle className={styles.googleIcon} />
+          <span>Sign Up with Google</span>
+        </button>
+      </div>
     </div>
   );
 }
